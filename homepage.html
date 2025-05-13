@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Welcome to the Home Page!</h2>
+    <img src="image.png" alt="">
+    <p id="welcomeText">Loading...</p>
+    <a href="hello.html" onclick="logout()">Logout</a>
+  </div>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!user) {
+      window.location.href = 'hello.html';
+    } else {
+      document.getElementById('welcomeText').textContent = "Hello, " + user.username + "!";
+    }
+
+    function logout() {
+      localStorage.removeItem('user');
+    }
+  </script>
+</body>
+</html>
